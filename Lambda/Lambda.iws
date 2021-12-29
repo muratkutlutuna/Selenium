@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ddbaa68-bfe8-4981-9a67-874c65142ffb" name="Changes" comment="intellijFirst1">
-      <change afterPath="$PROJECT_DIR$/src/day01/Lambda05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day01/Lambda06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day01/haluk.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_Workshop" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Workshop" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lambda.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Lambda.iws" afterDir="false" />
     </list>
@@ -48,13 +49,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\T450s\Desktop\git-github\Lambda\src\day01" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="open" />
       <command value="mvn" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Lambda05">
+  <component name="RunManager" selected="Application.Lambda06">
     <configuration name="Lambda02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="day01.Lambda02" />
       <module name="Lambda" />
@@ -107,8 +113,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Lambda06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="day01.Lambda06" />
+      <module name="Lambda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="day01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Lambda06" />
         <item itemvalue="Application.Lambda05" />
         <item itemvalue="Application.Lambda04" />
         <item itemvalue="Application.Lambda03" />
@@ -146,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640767007660</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="intellijFirst1">
+      <created>1640797243539</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640797243539</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
