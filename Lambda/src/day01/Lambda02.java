@@ -1,19 +1,19 @@
 package day01;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 
 public class Lambda02 {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>(Arrays.asList(12, 13, 65, -3, 7, 34, 22, -60, 42, 55));
-        ciftKare(list);
-        elamanlariTopla(list);
-        elamanlariTopla2(list);
-        carpCiftEl1(list);
-        carpCiftEl2(list);
-        enKucuk(list);
+//        ciftKare(list);
+//        elamanlariTopla(list);
+//        elamanlariTopla2(list);
+//        carpCiftEl1(list);
+//        carpCiftEl2(list);
+//        enKucuk(list);
+        buyuk15KucukTekSayi(list);
+        tekKareBygKck(list);
     }
 
     // List'in cift olan elemanlarin karelerini aliniz ve en buyugunu yazdiriniz
@@ -72,21 +72,30 @@ public class Lambda02 {
     public static void enKucuk(List<Integer> list) {
         Optional<Integer> enKucuk1 = list.stream().reduce(Integer::min);
         Optional<Integer> enKucuk2 = list.stream().reduce(Math::min);
-        Optional<Integer> enKucuk3 = list.stream().reduce(Lambda02::minBul);
         Optional<Integer> enKucuk4 = list.stream().sorted().findFirst();
         Integer enKucuk5 = list.stream().reduce(Integer.MAX_VALUE,(x,y)->x<y?x:y);
 
 
         System.out.println(enKucuk1);
         System.out.println(enKucuk2);
-        System.out.println(enKucuk3);
         System.out.println(enKucuk4);
         System.out.println(enKucuk5);
 
     }
-    public static int minBul(int x, int y){
-        return x<y?x:y;
-    }
 
+    //List'teki 15;ten buyuk en kucuk tek sayiyi yazdiriniz
+
+    public static void buyuk15KucukTekSayi(List<Integer>list) {
+        System.out.println(list.stream().filter(t ->t%2==1).filter(t -> t>15).reduce(Integer::min));
+    }
+    public static void tekKareBygKck(List<Integer> list){
+        list.
+                stream().
+                filter(t->t%2!=0).
+                map(t->t*t).
+                sorted(Comparator.reverseOrder()).//akısa giren elelmanlar ters siralanir
+                forEach(Lambda01::printEl);//144 484 1156 1764 3600
+
+    }
 
 }
