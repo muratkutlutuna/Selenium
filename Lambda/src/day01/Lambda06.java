@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class Lambda06 {
@@ -44,15 +45,54 @@ public class Lambda06 {
                 toList());
         //TASK 06 --> haluk.txt dosyasindaki tum kelimeleri natural order  yazdiriniz.
         System.out.println("\n*** haluk.txt dosyasindaki tum kelimeleri natural order  yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).//file e erisip file satirlari akisa alindi
+                        map(t -> t.split(" ")).
+                flatMap(Arrays::stream).
+                sorted().//Arrays classindan stream() ile array
+                toList());
         //TASK 07 --> haluk.txt dosyasinda "basari" kelimesinin kac kere gectigini buyuk harf kucuk harf bagımsız yaziniz.
         System.out.println("\n*** haluk.txt dosyasinda basari kelimesinin kac kere gectigini  yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).
+                        map(t->t.split(" ")).
+                        flatMap(Arrays::stream).//file e erisip file satirlari akisa alindi
+                        filter(t -> t.equalsIgnoreCase("basari")).//basari icerme sarti
+                        count());//akistaki elemanlar -> satirlar sayildi
         //TASK 08 --> haluk.txt dosyasinda "a" harfi gecen kelimelerin sayisini ekrana yazdiran programi yaziniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimelerin sayisini ekrana yazdiran programi yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).
+                map(t->t.split("")).
+                flatMap(Arrays::stream).//file e erisip file satirlari akisa alindi
+                filter(t -> t.equalsIgnoreCase("a")).//basari icerme sarti
+                count());//akistaki elemanlar -> satirlar sayildi
         //TASK 09 --> haluk.txt dosyasinda icinde "a" harfi gecen kelimeleri yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimeler yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).
+                map(t->t.split(" ")).
+                flatMap(Arrays::stream).//file e erisip file satirlari akisa alindi
+                filter(t -> t.contains("a")).//basari icerme sarti
+                toList());//akistaki elemanlar -> satirlar sayildi//.collect(Collectors.toList()
         //TASK 10 --> haluk.txt dosyasinda kac /farklı harf kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac /farklı harf kullanildigini  yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).
+                map(t->t.replaceAll("\\s++","").split("")).
+                flatMap(Arrays::stream).//file e erisip file satirlari akisa alindi
+                distinct().
+                count());//akistaki elemanlar -> satirlar sayildi
         //TASK 11 --> haluk.txt dosyasinda kac farkli kelime kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac farkli kelime kullanildigini  yazdiriniz. -->  ");
+        System.out.println(Files.
+                lines(Paths.get("src\\day01\\haluk.txt")).
+                map(t->t.trim()
+                        .split("\\s++")).
+                flatMap(Arrays::stream).//file e erisip file satirlari akisa alindi
+                distinct().
+                count());//akistaki elemanlar -> satirlar sayildi
+
+
     }
 }
