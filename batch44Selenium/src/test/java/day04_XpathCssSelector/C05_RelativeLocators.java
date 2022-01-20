@@ -22,8 +22,36 @@ public class C05_RelativeLocators {
         WebElement byArea = driver.findElement(By.id("pid8_thumb"));
         WebElement nyc = driver.findElement(By.id("pid3_thumb"));
 //        2 ) Berlin’i  3 farkli relative locator ile locate edin
-        WebElement berlin = driver.findElement(RelativeLocator.with(By.tagName("img")).toRightOf(boston));
-        System.out.println(berlin.getAttribute("id"));
+        WebElement berlin1 = driver.findElement(RelativeLocator.with(By.tagName("img")).toRightOf(boston));
+        WebElement berlin2 = driver.findElement(RelativeLocator.with(By.tagName("img")).above(sailor));
+        WebElement berlin3 = driver.findElement(RelativeLocator.with(By.tagName("img")).toLeftOf(byArea));
+        WebElement berlin4 = driver.findElement(RelativeLocator.with(By.tagName("img")).below(nyc));
 //        3 ) Relative locator’larin dogru calistigini test edin
+        String expectedIdValue = "pid7_thumb";
+        String actualValue1 = berlin1.getAttribute("id");
+        String actualValue2 = berlin2.getAttribute("id");
+        String actualValue3 = berlin3.getAttribute("id");
+        String actualValue4 = berlin4.getAttribute("id");
+        if (expectedIdValue.equals(actualValue1)) {
+            System.out.println("1. relative Locate Test PASSED");
+        } else {
+            System.out.println("1. relative Locate Test FAILED");
+        }
+        if (expectedIdValue.equals(actualValue2)) {
+            System.out.println("2. relative Locate Test PASSED");
+        } else {
+            System.out.println("2. relative Locate Test FAILED");
+        }
+        if (expectedIdValue.equals(actualValue3)) {
+            System.out.println("3. relative Locate Test PASSED");
+        } else {
+            System.out.println("3. relative Locate Test FAILED");
+        }
+        if (expectedIdValue.equals(actualValue4)) {
+            System.out.println("4. relative Locate Test PASSED");
+        } else {
+            System.out.println("4. relative Locate Test FAILED");
+        }
+        driver.quit();
     }
 }
