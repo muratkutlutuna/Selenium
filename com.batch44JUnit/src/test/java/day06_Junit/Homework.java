@@ -26,7 +26,7 @@ public class Homework {
 //            - Test 1
 //    Arama kutusunun yanindaki kategori menusundeki kategori
 //    sayisinin 45 oldugunu test edin
-        categories = driver.findElements(By.xpath("//select[@id=\"searchDropdownBox\"]/option"));
+        categories = driver.findElements(By.xpath("//select[@id='searchDropdownBox']/option"));
         result = categories.size();
         if (result == 45) {
             System.out.println("Category Number PASSED");
@@ -40,7 +40,7 @@ public class Homework {
 //2. Arama kutusuna Java yazin ve aratin
 //3. Bulunan sonuc sayisini yazdirin
 //4. Sonucun Java kelimesini icerdigini test edin
-        driver.findElement(By.xpath("//option[@value=\"search-alias=stripbooks-intl-ship\"]")).click();
+        driver.findElement(By.xpath("//option[@value='search-alias=stripbooks-intl-ship']")).click();
         driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("Java"+ Keys.ENTER);
         resultNumberString = driver.findElement(By.xpath("(//span[@dir='auto'])[1]")).getText().split(" ");
         result = Integer.parseInt(resultNumberString[3].replaceAll("\\D",""));
@@ -54,7 +54,7 @@ public class Homework {
         if (flag) {
             System.out.println("result contains Java PASSED");
         } else {
-            System.out.println("result contain not Java FAILED");
+            System.out.println("result not contain Java FAILED");
         }
     }
     @BeforeClass
@@ -68,7 +68,7 @@ public class Homework {
     }
     @AfterClass
     public static void afterClass() {
-        driver.quit();
+        //driver.quit();
     }
 
 
