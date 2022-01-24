@@ -2,7 +2,9 @@ package day08;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -10,7 +12,7 @@ import java.time.Duration;
 public class E03 {
     // ...Exercise3...
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -29,14 +31,17 @@ public class E03 {
         driver.findElement(By.xpath("//input[@id='datepicker']")).sendKeys("06.03.1992");
 //choose your profession -> Automation Tester
         driver.findElement(By.xpath("//input[@id='profession-1']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[text()='Got it!']")).click();
+        driver.findElement(By.xpath("//a[@id='cookieChoiceDismiss']")).click();
 //choose your tool -> Selenium Webdriver
         driver.findElement(By.xpath("//input[@id='tool-2']")).click();
 //choose your continent -> Antartica
-        driver.findElement(By.xpath("//select[@id='continents']")).click();
-        driver.findElement(By.xpath("//option[test()='Antartica']")).click();
+        driver.findElement(By.xpath("//select[@id='continents']")).sendKeys("Antartica");
 //choose your command  -> Browser
-        driver.findElement(By.xpath("//option[test()='Browser Commands']")).click();
-//click submit button
+        driver.findElement(By.xpath("//option[normalize-space()='Browser Commands']")).click();
+        //click submit button
         driver.findElement(By.xpath("//button[@id='submit']")).click();
+
     }
 }

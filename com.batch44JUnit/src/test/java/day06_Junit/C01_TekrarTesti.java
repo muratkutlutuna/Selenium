@@ -22,11 +22,11 @@ public class C01_TekrarTesti {
         driver.findElement(By.xpath("//div[text()='Ich stimme zu']")).click();
 //        4-Sayfa basliginin “Google” ifadesi icerdigini test edin
         String expectedOutput = "Google";
-        String actualOutput = driver.gettitle1();
+        String actualOutput = driver.getTitle();
         if (actualOutput.contains(expectedOutput)) {
-            System.out.println("title1 contains PASS");
+            System.out.println("Title contains PASS");
         } else {
-            System.out.println("title1 is not contain FAILED");
+            System.out.println("Title is not contain FAILED");
         }
 //        5- Arama cubuguna “Nutella” yazip aratin
         driver.findElement(By.xpath("//input[@name='q']")).sendKeys("Nutella"+ Keys.ENTER);
