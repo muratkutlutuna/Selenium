@@ -44,7 +44,10 @@ WebDriver driver;
             System.out.println(option.getText());
         }
 //5. Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse False yazdırın.
-        boolean isFour = optionList.size() == 4;
-        Assert.assertTrue(isFour);
+//        boolean isFour = optionList.size() == 4;
+//        Assert.assertTrue(isFour);
+        int actualSize = optionList.size();
+        int expectedSize = 4;
+        Assert.assertEquals(actualSize, expectedSize,"Option numbers are not expected");
     }
 }
