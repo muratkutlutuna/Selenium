@@ -1,10 +1,9 @@
 package tests.day14;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.Test;
 import utilities.TestBase;
 
@@ -20,17 +19,18 @@ public class C04_Screenshot extends TestBase {
         //deger olarak driver'imizi atayalim
         //deger olarak driver'i kabul etmesi icin casting yapmamiz gerekir
 
-        TakesScreenshot tss = (TakesScreenshot)driver;
+        TakesScreenshot tss = (TakesScreenshot) driver;
 
         //2.adim: tum sayfanin screenshot'ini almak icin birFile olusturalim ve
         //dosya yolunu belirtelim
 
-        File tumSayfaSS = new File("src\\tumSayfa.png");
+        File tumSayfaSS = new File("src/test/java/tests/tumSayfa.png");
 
         //3.adim olusturdugumuz File ile takeScreenshoot objesini iliskilendirelim
 
-        tumSayfaSS = tss.getScreenshotAs(OutputType.FILE);
-        FileHandler.copy(tumSayfaSS, new File("src\\tumSayfa.png"));
+        File geciciSS = tss.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(geciciSS, tumSayfaSS);
+        //FileHandler.copy(geciciSS, tumSayfaSS);
     }
 }
 
