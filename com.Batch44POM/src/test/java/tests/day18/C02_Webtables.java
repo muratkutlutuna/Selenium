@@ -7,6 +7,7 @@ import pages.HMCWebTablePage;
 import pages.HotelmycampPage;
 import utilities.Driver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class C02_Webtables {
@@ -43,8 +44,20 @@ public class C02_Webtables {
     public void printRows(){
             //● printRows( ) metodu oluşturun //tr
             //            ○ table body’sinde bulunan toplam satir(row) sayısını bulun.
+            //   //tbody//tr
+            hmcWebTablePage = new HMCWebTablePage();
+            System.out.println(hmcWebTablePage.rowsList.size());
             //            ○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
+            List<WebElement>rowsWebElementsList = hmcWebTablePage.rowsList;
+            System.out.println();
+            rowsWebElementsList.forEach(t-> System.out.println(t.getText()));
+            System.out.println();
+            for (WebElement w : rowsWebElementsList) {
+                System.out.println(w.getText());
+            }
+            System.out.println();
             //            ○ 4.satirdaki(row) elementleri konsolda yazdırın.
-        //table//td o aman hepsini gosterir
+            System.out.println("4.satir : "+rowsWebElementsList.get(3).getText());
+            //table//td o aman hepsini gosterir
         }
 }
