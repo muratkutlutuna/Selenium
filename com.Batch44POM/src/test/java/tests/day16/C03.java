@@ -8,7 +8,7 @@ import utilities.Driver;
 
 public class C03 {
     //1 - https://www.facebook.com/ adresine gidin
-    @Test
+    @Test(groups = {"miniRegression","regression"})
     public void test01(){
         Driver.getDriver().get("https://www.facebook.com");
         FacebookPage facebookPage = new FacebookPage();

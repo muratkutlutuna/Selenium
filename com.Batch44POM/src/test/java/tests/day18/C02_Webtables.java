@@ -25,7 +25,7 @@ public class C02_Webtables {
 
     }
     @Test(priority =1)
-    public void table(){
+    public void loginT(){
         //● table( ) metodu oluşturun
         //            ○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
         //            ○ Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.

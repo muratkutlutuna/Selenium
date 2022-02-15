@@ -1,0 +1,53 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="class'lari paralel calistirma" parallel="classes" thread-count="3" verbose="4">
+    <!--
+    TestNG'de testlerimiz paralel calistirmak kolaydir,
+    ANCAK TestNG raporlama yapmaz
+    Eger rapor istiyorsaniz herbir test methodunuzu
+    rapor alacak sekilde yeniden dizayn etmelisiniz
+
+    Paralel calistirma icin
+    1- Kac browser'in ayni anda calisacagina
+    2- Hangi test'lerin calisacagina
+    3- Driver'larin gorev paylasimini hangi seviyeden yapacagina(package, class, test method'u)
+    karar vermemiz gerekiyor
+
+    verbose: xml dosyasi calistiktan sonra terminal'de yazdirilan satirlarin az veya cok olmasini saglar
+    1-  en az
+    10- en cok
+    -->
+    <test name="smoke test paralel calistirma">
+        <packages>
+            <package name="tests.day16"></package>
+            <package name="tests.day17"></package>
+        </packages>
+    </test>
+
+</suite>
+<!--
+Paralel testing cucumber ve testNG'de yapilabilir. ikisinin de artilari ve eksileri
+ var ama bu konuda karar verecek calisacagimiz isyeridir. Biz her iki framework
+ icin de paralel calistirma yontemini bilmeliyiz.
+
+ - Cucumber ile paralel testing:
+ - Cucumberde coklu calistirma runner class'i ile mumkun oldugundan,
+ birden fazla driver'in ayni anda calismasini istiyorsak birden iki seyi
+ unutmamaliyi\.
+ - Birden fazla runner oldugunda iki seyi unutmamaliyiz
+    - Her bir runner'in raporu kaydedecegi dosya isimlerini degistirmek
+    - Paralel calisacak runner'lar icin isimlerinde ortak bir metin olmali
+    ve bu metin plugin'e islenmeli
+ - Pom xml'e 2 +1 olugin ekliyoruz ve pluginlerde opsiyonel olan kisimlari
+ kendimize uyarliyoruz
+    - Failsafe : testlerimiz fail oldugunda runner'in calismaya devam etmesini
+    saglar
+    - Surfire : testlerin paralel olarak calismasini saglar
+    - Daha fazla bir raporlama icin de bir plugin ekledik
+ - Birden fazla runner'i manuel olarak beraber calistiramayiz, terminal'den
+ "mvn clean verify" yazarak calistirabiliriz
+- TestNg ile paralel calistirma cok daha kolay, bunun icin xml dosyasinda suite
+tag'inin icine paralel=driverlarin is bolusme seviyesi, thread-count=beraber
+calismasini istedigimiz driver sayisi yazmamiz yeterli. Ancak TestNG'de raporlama
+olmadigi icin cok tercih etmeyiz
+
+-->

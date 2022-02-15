@@ -2,6 +2,7 @@ package tests.day14;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -45,7 +46,7 @@ public class C01_ExplicitlyWait extends TestBase {
     @Test
     public void explicitlyWait() throws InterruptedException {
         //explicitly wait kullanabilmek icin wait objesi olusturmaliyiz
-        WebDriverWait wait = new WebDriverWait(driver,15);
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
         //4. Remove butonuna basin.
         driver.findElement(By.xpath("//button[.='Remove']")).click();
